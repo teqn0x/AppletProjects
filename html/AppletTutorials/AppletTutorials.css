@@ -4,12 +4,12 @@ margin: 0;
 html,body {
 height:100%;
 }
-.wrapper {
+#wrapper {
 min-height: 100%;
 height: auto !important;
 height: 100%;
 margin: 0 auto -100px;
 }
-.footer, .push {
+#footer, #push {
 height: 100px;
 }

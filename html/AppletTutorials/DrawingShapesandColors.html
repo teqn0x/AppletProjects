@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drawing Shapes and Colors Applet</title>
+</head>
+<body>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="ToggleMeScript.js" type="text/javascript"></script>
+
+<center><p><applet width="300" height="300" code="DrawingShapesAndColorsApplet.java" codebase="bin"></applet></p></center><br>
+<center><input type="button" value="Source" onclick="return toggleMe('sourcecode1')"></input></center><br>
+<div id="sourcecode1" style="display:none">
+<pre class="prettyprint">
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.Color;
+import java.awt.Font;
+
+
+public class DrawingShapesAndColorsApplet extends Applet {
+
+
+    //Colors that are needed anywhere in this class
+    Font bigFont;
+    Color redColor;
+    Color weirdColor;
+    Color bkgColor;
+
+    public void init(){
+	//initialize the variables here
+	bigFont=new Font("Comic Sans MS",Font.BOLD,16);
+	redColor = Color.red;
+	weirdColor = new Color(60,70,80);
+	bkgColor = Color.blue;
+	setBackground(bkgColor);
+    }
+    
+    public void stop() {}
+
+    public void paint(Graphics g){
+	g.setFont(bigFont);
+	g.drawString("Shapes and Colors",80,20);
+	
+	g.setColor(redColor);
+	
+	g.drawRect(100,100,100,100); //Draw a rectangle x,y 100,100, w,l 100,100
+	
+	g.fillRect(110,110,80,80);   //Draw and fill a rectangle, x,y 110,110, w,l 80,80
+	
+	g.setColor(weirdColor);
+	
+	g.fillArc(120,120,60,60,0,270);
+	
+	g.setColor(Color.yellow); //Color does not have to be a predefined variable, can directly input from Color
+	
+	g.drawLine(140,140,160,160);
+
+
+	// Resetting the color at the end can be vital for the next time the applet paints something.
+	// The applet is actually repainted after a part isn't visible anymore,
+	// which happens often after scrolling or minimizing the browser.
+	g.setColor(Color.black);
+    }
+
+}
+</pre>
+</div>
+
+<br><hr>
+
+<center><p><applet width="300" height="300" code="DrawingShapesAndColorsNoResetApplet.java" codebase="bin"></applet></p></center>
+<center><input type="button" value="source" onclick="return toggleMe('sourcecode2')"></input></center><br>
+<div id="sourcecode2" style="display:none">
+<pre class="prettyprint">
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.Color;
+import java.awt.Font;
+
+
+public class DrawingShapesAndColorsNoResetApplet extends Applet {
+
+
+    //Colors that are needed anywhere in this class
+    Font bigFont;
+    Color redColor;
+    Color weirdColor;
+    Color bkgColor;
+
+    public void init(){
+	//initialize the variables here
+	bigFont = new Font("Comic Sans MS",Font.BOLD,16);
+        smallFont = new Font("Arial",Font.BOLD,12);
+	redColor = Color.red;
+	weirdColor = new Color(60,70,80);
+	bkgColor = Color.blue;
+	setBackground(bkgColor);
+    }
+    
+    public void stop() {}
+
+    public void paint(Graphics g){
+	g.setFont(bigFont);
+	g.drawString("Shapes and Colors",80,20);
+	
+	g.setColor(redColor);
+	
+	g.drawRect(100,100,100,100); //Draw a rectangle x,y 100,100, w,l 100,100
+	
+	g.fillRect(110,110,80,80);   //Draw and fill a rectangle, x,y 110,110, w,l 80,80
+	
+	g.setColor(weirdColor);
+	
+	g.fillArc(120,120,60,60,0,270);
+	
+	g.setColor(Color.yellow); //Color does not have to be a predefined variable, can directly input from Color
+	
+	g.drawLine(140,140,160,160);
+
+	// Resetting the color at the end can be vital for the next time the applet paints something.
+	// The applet is actually repainted after a part isn't visible anymore,
+	// which happens often after scrolling or minimizing the browser.
+	// g.setColor(Color.black)
+	
+	//Now we removed the color reset, and the string "Shapes and Colors" should be yellow after minimizing the browser!
+	g.setFont(new Font("Arial",Font.BOLD,12));
+	g.drawString("Try minimizing and maximizing the browser",10,250);
+	g.drawString("to see the effect of not resetting the color!",10,270);
+
+    }
+
+}
+</pre>
+</div>
+
+<br><hr>
+
+
+<center><a href="Chapter1.html">Return to Chapter 1</a></center>
+</body>
+</html>

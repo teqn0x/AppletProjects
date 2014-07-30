@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello World Example Applet</title>
+</head>
+<body>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="ToggleMeScript.js" type="text/javascript"></script>
+
+<center><p><applet width="200" height="50" code="HelloWorldApplet.class" codebase="bin"></applet></p></center>
+
+
+<center><input type="button" value="Source" onclick="return toggleMe('sourcecode')"></input></center><br>
+<div id="sourcecode" style="display:none">
+<pre class="prettyprint">
+import java.applet.Applet;
+import java.awt.Graphics;
+
+
+public class HelloWorldApplet extends Applet {
+    public void init() {}
+    public void stop() {}
+    public void paint(Graphics g){
+
+	g.drawString("Hey hey hey",20,20);
+	g.drawString("Hello World!",20,40);
+    
+    }
+    
+}
+
+</pre>
+</div>
+<br><hr>
+
+<center><a href="Chapter1.html">Return to Chapter 1</a></center>
+</body>
+</html>
